@@ -4,6 +4,12 @@ frameworkVersion: "3"
 
 custom:
     stage: ${opt:stage, 'dev'}
+    dynamodb:
+        start:
+            - port: 5000
+            - inMemory: true
+            - migrate: true
+        stages: dev
 
 provider:
     name: aws
@@ -29,11 +35,29 @@ package:
 
 plugins:
     - serverless-plugin-typescript
+    - serverless-offline
+    - serverless-dynamodb-local
+
+resources:
+    Resources:
+        TodosTable:
+            Type: "AWS::DynamoDB::Table"
+            Properties:
+                TableName: "TodosTable"
+                AttributeDefinitions:
+                    AttributeName: "todosId"
+                    AttributeType: "S"
+                KeySchema:
+                    AttributeName: "todosId"
+                    KeyType: "HASH"
+                ProvisionedThroughput:
+                    ReadCapacityUnits: 1
+                    WriteCapacityUnits: 1
 
 functions:
     sayHello:
         name: ${self:service}-${self:custom.stage}-sayHello
-        handler: handler/hello.say
+        handler: src/functions/helloWorld/hello.say
         events:
             - http:
                   path: hello
@@ -41,7 +65,7 @@ functions:
                   cors: true
     sayGoogbye:
         name: ${self:service}-${self:custom.stage}-sayGoodbye
-        handler: handler/goodbye.say
+        handler: src/functions/helloWorld/goodbye.say
         events:
             - http:
                   path: goodbye

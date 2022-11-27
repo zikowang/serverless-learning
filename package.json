@@ -2,28 +2,41 @@
     "name": "serverless-learning",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "serverless.ts",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "watch": "tsc -w",
         "lint": "tsc --noEmit && eslint --ext '**/*.ts'",
         "build": "tsc -p ."
     },
+    "engines": {
+        "node": ">=16.0.0"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {},
+    "dependencies": {
+        "@middy/core": "^4.0.0",
+        "@middy/http-json-body-parser": "^4.0.0",
+        "json-schema-to-ts": "^2.6.1",
+        "uuid": "^9.0.0"
+    },
     "devDependencies": {
+        "@serverless/typescript": "^3.25.0",
         "@types/aws-lambda": "^8.10.109",
         "@types/aws-sdk": "^2.7.0",
         "@types/node": "^18.11.9",
+        "@types/uuid": "^8.3.4",
         "aws-lambda": "^1.0.7",
         "eslint": "^8.28.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-plugin-import": "^2.26.0",
+        "serverless-dynamodb-local": "^0.2.40",
         "serverless-esbuild": "^1.33.2",
         "serverless-offline": "^11.6.0",
         "serverless-plugin-typescript": "^2.1.4",
+        "ts-node": "^10.9.1",
+        "tsconfig-paths": "^4.1.0",
         "tslint": "^6.1.3",
         "tslint-config-standard": "^9.0.0",
         "typescript": "^4.9.3"
