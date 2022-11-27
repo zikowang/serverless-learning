@@ -1,0 +1,49 @@
+service: serverless-learning
+
+frameworkVersion: "3"
+
+custom:
+    stage: ${opt:stage, 'dev'}
+
+provider:
+    name: aws
+    runtime: nodejs16.x
+    stage: dev
+    region: eu-central-1
+    environment:
+        stage: ${self:custom.stage}
+    iam:
+        role:
+            statements:
+                - Effect: "Allow"
+                  Action:
+                      - "s3:*"
+                  Resource:
+                      - "*"
+
+package:
+    patterns:
+        - "!package-log.json"
+        - "!README.md"
+        - "!node_modules/**"
+
+plugins:
+    - serverless-plugin-typescript
+
+functions:
+    sayHello:
+        name: ${self:service}-${self:custom.stage}-sayHello
+        handler: handler/hello.say
+        events:
+            - http:
+                  path: hello
+                  method: get
+                  cors: true
+    sayGoogbye:
+        name: ${self:service}-${self:custom.stage}-sayGoodbye
+        handler: handler/goodbye.say
+        events:
+            - http:
+                  path: goodbye
+                  method: get
+                  cors: true
