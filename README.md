@@ -1,5 +1,7 @@
 # Leadning serverless with AWS
 
+The project is using typescript.
+
 ## Serverless
 
 ### Invoke locally
