@@ -4,6 +4,10 @@
 
 ### Invoke locally
 
+`sls invoke local -f <functionName>`
+
+or
+
 `sls invoke local -f <functionName> --watch`
 
 ### Deploy stack
