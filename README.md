@@ -2,6 +2,10 @@
 
 ## Serverless
 
+### Invoke locally
+
+`sls invoke local -f <functionName> --watch`
+
 ### Deploy stack
 
 `sls deploy`
