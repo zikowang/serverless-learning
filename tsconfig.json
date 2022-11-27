@@ -10,6 +10,7 @@
         "skipLibCheck": true,
         "rootDir": "./",
         "outDir": ".build",
-        "sourceMap": true
+        "sourceMap": true,
+        "noImplicitAny": true
     }
 }
