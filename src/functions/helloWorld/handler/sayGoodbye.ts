@@ -1,5 +1,3 @@
-"use-strict";
-
 import {
     Context,
     APIGatewayProxyCallback,
@@ -8,12 +6,10 @@ import {
 } from "aws-lambda";
 
 export const say = async (
-    event: APIGatewayEvent,
-    context: Context,
-    callback: APIGatewayProxyCallback
+    _event: APIGatewayEvent,
+    _context: Context,
+    _callback: APIGatewayProxyCallback
 ): Promise<APIGatewayProxyResult> => {
-    console.log("Goodbye from Zicheng!");
-
     const response = {
         statusCode: 200,
         body: JSON.stringify({

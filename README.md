@@ -4,6 +4,16 @@ The project is using typescript.
 
 ## Serverless
 
+### Develop and test locally
+
+#### Install dynamodb locally
+
+`sls dynamodb install`
+
+#### Deploy locally
+
+`sls offline start`
+
 ### Invoke locally
 
 `sls invoke local -f <functionName>`

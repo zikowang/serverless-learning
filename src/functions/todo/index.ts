@@ -1,7 +1,7 @@
-import { handlerPath } from "../../libs/handler-resolver";
+import { handlerPath } from "@libs/handler-resolver";
 
 export const getAllTodos = {
-    handler: `${handlerPath(__dirname)}/handler.getAllTodos`,
+    handler: `${handlerPath(__dirname)}/getAllTodos.getAllTodos`,
     events: [
         {
             http: {
@@ -10,10 +10,18 @@ export const getAllTodos = {
             },
         },
     ],
+    package: {
+        patterns: [
+            "node_modules/uuid/**",
+            "node_modules/json-schema-to-ts/**",
+            "node_modules/@middy/**",
+            `${handlerPath(__dirname)}/getAllTodos.*`,
+        ],
+    },
 };
 
 export const createTodo = {
-    handler: `${handlerPath(__dirname)}/handler.createTodo`,
+    handler: `${handlerPath(__dirname)}/createTodo.createTodo`,
     events: [
         {
             http: {
@@ -22,10 +30,18 @@ export const createTodo = {
             },
         },
     ],
+    package: {
+        patterns: [
+            "node_modules/uuid/**",
+            "node_modules/json-schema-to-ts/**",
+            "node_modules/@middy/**",
+            `${handlerPath(__dirname)}/createTodo.*`,
+        ],
+    },
 };
 
 export const getTodo = {
-    handler: `${handlerPath(__dirname)}/handler.getTodo`,
+    handler: `${handlerPath(__dirname)}/getTodo.getTodo`,
     events: [
         {
             http: {
@@ -34,10 +50,18 @@ export const getTodo = {
             },
         },
     ],
+    package: {
+        patterns: [
+            "node_modules/uuid/**",
+            "node_modules/json-schema-to-ts/**",
+            "node_modules/@middy/**",
+            `${handlerPath(__dirname)}/getTodo.*`,
+        ],
+    },
 };
 
 export const updateTodo = {
-    handler: `${handlerPath(__dirname)}/handler.updateTodo`,
+    handler: `${handlerPath(__dirname)}/updateTodo.updateTodo`,
     events: [
         {
             http: {
@@ -46,10 +70,18 @@ export const updateTodo = {
             },
         },
     ],
+    package: {
+        patterns: [
+            "node_modules/uuid/**",
+            "node_modules/json-schema-to-ts/**",
+            "node_modules/@middy/**",
+            `${handlerPath(__dirname)}/updateTodo.*`,
+        ],
+    },
 };
 
 export const deleteTodo = {
-    handler: `${handlerPath(__dirname)}/handler.deleteTodo`,
+    handler: `${handlerPath(__dirname)}/deleteTodo.deleteTodo`,
     events: [
         {
             http: {
@@ -58,4 +90,12 @@ export const deleteTodo = {
             },
         },
     ],
+    package: {
+        patterns: [
+            "node_modules/uuid/**",
+            "node_modules/json-schema-to-ts/**",
+            "node_modules/@middy/**",
+            `${handlerPath(__dirname)}/deleteTodo.*`,
+        ],
+    },
 };

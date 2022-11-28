@@ -13,6 +13,7 @@ const serverlessConfiguration: AWS = {
     frameworkVersion: "3",
     plugins: [
         "serverless-plugin-typescript",
+        "serverless-tscpaths",
         "serverless-dynamodb-local",
         "serverless-offline",
     ],
@@ -65,9 +66,7 @@ const serverlessConfiguration: AWS = {
             "!package-log.json",
             "!README.md",
             "!node_modules/**",
-            "node_modules/uuid/**",
-            "node_modules/json-schema-to-ts/**",
-            "node_modules/@middy/**",
+            "!src/functions/**",
         ],
         individually: true,
     },
@@ -81,6 +80,13 @@ const serverlessConfiguration: AWS = {
             define: { "require.resolve": undefined },
             platform: "node",
             concurrency: 10,
+        },
+        tscpaths: {
+            functions: "@functions",
+            libs: "@libs",
+            model: "@model",
+            services: "@services",
+            customTypes: "@customTypes",
         },
         dynamodb: {
             start: {

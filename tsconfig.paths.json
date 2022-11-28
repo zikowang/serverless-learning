@@ -4,6 +4,8 @@
         "paths": {
             "@functions/*": ["src/functions/*"],
             "@services/*": ["src/services/*"],
+            "@model/*": ["src/model/*"],
+            "@customTypes/*": ["src/customTypes/*"],
             "@libs/*": ["src/libs/*"]
         }
     }

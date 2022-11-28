@@ -1,7 +1,7 @@
-import { handlerPath } from "../../libs/handler-resolver";
+import { handlerPath } from "@libs/handler-resolver";
 
 export const sayHello = {
-    handler: `${handlerPath(__dirname)}/handler.sayHello`,
+    handler: `${handlerPath(__dirname)}/sayHello.say`,
     events: [
         {
             http: {
@@ -10,10 +10,13 @@ export const sayHello = {
             },
         },
     ],
+    package: {
+        patterns: ["!src/**", `${handlerPath(__dirname)}/sayHello.*`],
+    },
 };
 
 export const sayGoodbye = {
-    handler: `${handlerPath(__dirname)}/handler.sayGoodbye`,
+    handler: `${handlerPath(__dirname)}/sayGoodbye.say`,
     events: [
         {
             http: {
@@ -22,4 +25,7 @@ export const sayGoodbye = {
             },
         },
     ],
+    package: {
+        patterns: ["!src/**", `${handlerPath(__dirname)}/sayGoodbye.*`],
+    },
 };

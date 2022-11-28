@@ -1,6 +1,6 @@
 import { DocumentClient } from "aws-sdk/clients/dynamodb";
 
-import Todo from "../model/Todo";
+import Todo from "@model/Todo";
 
 export default class TodoServerice {
     private Tablename: string = "TodosTable";
