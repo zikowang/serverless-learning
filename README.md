@@ -26,6 +26,6 @@ or
 
 `sls deploy`
 
-### Deploy single function
+### Deploy a single function
 
 `sls deploy -f <functionName>`
